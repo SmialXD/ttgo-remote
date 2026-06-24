@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="style.css">
+<position: center>
+    <title>TTGo</title>
+</head>
+
+<body>
+    <h1>TTGo</h1>
+    <input type="text" id="field" placeholder="Type here ...">
+    <button onclick="senddata()">Send to Host</button>
+</body>
+<script>
+    function senddata() {
+        let data = document.getElementById("field");
+        let inputdata = data.value;
+
+
+        fetch("https://ttgo-text-remote-default-rtdb.europe-west1.firebasedatabase.app/.json", {
+            method: "PUT",
+            body: JSON.stringify({displayText: inputdata}),
+        });
+    }
+</script>
+
+</html>
