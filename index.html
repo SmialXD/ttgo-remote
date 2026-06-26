@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
@@ -8,23 +7,31 @@
 <position: center>
     <title>TTGo</title>
 </head>
-
 <body>
     <h1>TTGo</h1>
-    <input type="text" id="field" placeholder="Type here ...">
-    <button onclick="senddata()">Send to Host</button>
+    <input type="text" id="msgFredi" placeholder="Type here ...">
+    <button onclick="senddataFredi()">Send to Fredi</button>
+
+    <input type="text" id="msgSvea" placeholder="Type here ...">
+    <button onclick="senddataSvea()">Send to Svea</button>
+
 </body>
 <script>
-    function senddata() {
-        let data = document.getElementById("field");
+    function senddataFredi() {
+        let data = document.getElementById("msgFredi");
         let inputdata = data.value;
-
-
         fetch("https://ttgo-text-remote-default-rtdb.europe-west1.firebasedatabase.app/.json", {
             method: "PUT",
-            body: JSON.stringify({displayText: inputdata}),
+            body: JSON.stringify({msgToSvea: inputdata}),
+        });
+    function senddataSvea() {
+        let data = document.getElementById("msgSvea");
+        let inputdata = data.value;
+        fetch("https://ttgo-text-remote-default-rtdb.europe-west1.firebasedatabase.app/.json", {
+            method: "PUT",
+            body: JSON.stringify({msgToFredi: inputdata}),
         });
     }
 </script>
-
 </html>
+
