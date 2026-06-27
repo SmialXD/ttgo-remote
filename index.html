@@ -22,14 +22,15 @@
         let inputdata = data.value;
         fetch("https://ttgo-text-remote-default-rtdb.europe-west1.firebasedatabase.app/msgToSvea.json", {
             method: "PUT",
-            body: JSON.stringify({msgToSvea: inputdata}),
+            body: JSON.stringify(inputdata),
         });
+    }
     function senddataSvea() {
         let data = document.getElementById("msgSvea");
         let inputdata = data.value;
         fetch("https://ttgo-text-remote-default-rtdb.europe-west1.firebasedatabase.app/msgToFredi.json", {
             method: "PUT",
-            body: JSON.stringify({msgToFredi: inputdata}),
+            body: JSON.stringify(inputdata),
         });
     }
 </script>
